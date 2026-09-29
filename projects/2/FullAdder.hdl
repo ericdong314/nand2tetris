@@ -11,4 +11,19 @@ CHIP FullAdder {
 
     PARTS:
     //// Replace this comment with your code.
+    //Alternative Solution
+    //HalfAdder(a=a, b=b, sum=s1, carry=c1);
+    //Xor(a=a, b=b, out=outXor);
+    //Not(in=outXor, out=s2);
+    //Or(a=a, b=b, out=c2);
+    //Mux(a=s1, b=s2, sel=c, out=sum);
+    //Mux(a=c1, b=c2, sel=c, out=carry);
+    HalfAdder(a=a, b=b, sum=s1, carry=c1);
+    HalfAdder(a=s1, b=c, sum=sum, carry=c2);
+    Or(a=c1, b=c2, out=carry);  
+    // We can use for because it's impossible for both c1 and c2 to be 1
+    // if s1 == 0, then c2 must be 0
+    // otherwise, c1 must be 0
+
+    
 }
