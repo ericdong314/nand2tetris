@@ -7,3 +7,33 @@
 // The algorithm is based on repetitive addition.
 
 //// Replace this comment with your code.
+// mult x(R0) and y(R1) and save result(R2)
+// initialization
+// result = 0
+// while x > 0:
+//     result += y
+//     x -= 1
+// return result
+
+@2
+M=0    // result = 0
+
+(LOOP)
+@0
+D=M    // D is holding x
+@END
+D;JEQ  // if x == 0: jump to END
+
+@1
+D=M    // D is holding y
+@2
+M=D+M  // result = y + result
+
+@0
+D=M    // D is holding x
+M=D-1  // x = x - 1
+
+@LOOP
+0;JMP
+
+(END)
